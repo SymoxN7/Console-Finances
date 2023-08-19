@@ -86,3 +86,52 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+let totalMonths = finances.length
+let totalAmount = 0
+let totalChange = finances[0][1]
+
+//Total Calc
+for (i = 0; i < finances.length; i++) {
+  totalAmount += finances[i][1]
+}
+
+//Average Change calc
+let diff = 0
+for (i = 0; i < finances.length; i++) {
+  diff = finances[i][1] - totalChange
+}
+let avgChange = diff / (totalMonths - 1)
+
+// Greatest Increase/Decrease
+let bestMonth = 0;
+let worstMonth = 0;
+let currentChange = finances[0][1];
+let bestSoFar = 0;
+let bestMonthDate; 
+let worstMonthDate;
+for (i = 1; i < finances.length; i++) {
+
+  bestSoFar = finances[i][1] - currentChange
+  if (bestSoFar > bestMonth) {
+    bestMonth = bestSoFar
+    bestMonthDate = finances[i][0]
+  }
+  if (bestSoFar < worstMonth) {
+    worstMonth = bestSoFar
+    worstMonthDate = finances[i][0]
+  }
+  currentChange = finances[i][1]
+
+}
+
+
+
+console.log(
+  `Financial Analysis
+--------------------
+Total Months: ${totalMonths}
+Total: $${totalAmount}
+Average Change: ${avgChange.toFixed(2)}
+Greatest Increase in Profits/Losses: ${bestMonthDate} ($${bestMonth})
+Greatest Decrease in Profits/Losses: ${worstMonthDate} ($${worstMonth})`)
