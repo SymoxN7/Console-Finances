@@ -17,7 +17,10 @@ Right-Click - Inspect - Select "Console" tab
 
 ## Usage 
 
-Right-Click - Inspect - Select "Console" tab
+Right-Click - Inspect - Select "Console" tab 
+
+Screenshot of functionality:
+![Console-Finances](./assets/images/screenshot.PNG)
 
 ## License
 
